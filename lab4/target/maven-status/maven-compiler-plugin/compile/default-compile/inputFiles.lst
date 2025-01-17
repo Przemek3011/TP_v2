@@ -1,12 +1,12 @@
-C:\Users\przem\OneDrive\Pulpit\TP\lab4\src\main\java\checkers\Game\Board.java
-C:\Users\przem\OneDrive\Pulpit\TP\lab4\src\main\java\checkers\ClientHandler.java
-C:\Users\przem\OneDrive\Pulpit\TP\lab4\src\main\java\checkers\Client.java
-C:\Users\przem\OneDrive\Pulpit\TP\lab4\src\main\java\checkers\Game\Response.java
-C:\Users\przem\OneDrive\Pulpit\TP\lab4\src\main\java\checkers\Game\FactoryBoard.java
-C:\Users\przem\OneDrive\Pulpit\TP\lab4\src\main\java\checkers\Game\Movement.java
-C:\Users\przem\OneDrive\Pulpit\TP\lab4\src\main\java\checkers\Server.java
-C:\Users\przem\OneDrive\Pulpit\TP\lab4\src\main\java\checkers\BoardGUI.java
-C:\Users\przem\OneDrive\Pulpit\TP\lab4\src\main\java\checkers\App.java
-C:\Users\przem\OneDrive\Pulpit\TP\lab4\src\main\java\checkers\Game\Game.java
-C:\Users\przem\OneDrive\Pulpit\TP\lab4\src\main\java\checkers\UserApplication.java
-C:\Users\przem\OneDrive\Pulpit\TP\lab4\src\main\java\checkers\Game\RandomBoard.java
+C:\All\Studies\Software engineering\Trylma\TP_v2\lab4\src\main\java\checkers\client\BoardGUI.java
+C:\All\Studies\Software engineering\Trylma\TP_v2\lab4\src\main\java\checkers\Game\Response.java
+C:\All\Studies\Software engineering\Trylma\TP_v2\lab4\src\main\java\checkers\server\Server.java
+C:\All\Studies\Software engineering\Trylma\TP_v2\lab4\src\main\java\checkers\Game\FactoryBoard.java
+C:\All\Studies\Software engineering\Trylma\TP_v2\lab4\src\main\java\checkers\client\ClientApplication.java
+C:\All\Studies\Software engineering\Trylma\TP_v2\lab4\src\main\java\checkers\server\ClientHandler.java
+C:\All\Studies\Software engineering\Trylma\TP_v2\lab4\src\main\java\checkers\server\ServerApplication.java
+C:\All\Studies\Software engineering\Trylma\TP_v2\lab4\src\main\java\checkers\Game\Board.java
+C:\All\Studies\Software engineering\Trylma\TP_v2\lab4\src\main\java\checkers\Game\Game.java
+C:\All\Studies\Software engineering\Trylma\TP_v2\lab4\src\main\java\checkers\client\Client.java
+C:\All\Studies\Software engineering\Trylma\TP_v2\lab4\src\main\java\checkers\Game\Movement.java
+C:\All\Studies\Software engineering\Trylma\TP_v2\lab4\src\main\java\checkers\Game\RandomBoard.java
