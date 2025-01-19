@@ -1,8 +1,9 @@
 package checkers.Game;
 
 public class Board implements FactoryBoard {
-    private int board[][];
+    private final int[][] board;
     public Board(){
+        // ATTENTION: here the X axis is vertical, and Y is horizontal.
         board=new int[][]{
             {0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0,0,2,0,2,0,0,0,0,0,0,0,0,0,0,0},
@@ -72,7 +73,4 @@ public class Board implements FactoryBoard {
     }
     return board;
     }
-
-    
-
 }
