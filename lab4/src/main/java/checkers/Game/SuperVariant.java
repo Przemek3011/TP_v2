@@ -73,8 +73,6 @@ public class SuperVariant implements Variant{
 
         // Are other tiles on the way free
         int steps = Math.max(Math.abs(dx), Math.abs(dy));
-        int occupiedCount = 0;
-
         for (int i = 1; i < steps; i++) {
             int currentX = start.getX() + (dx * i) / steps;
             int currentY = start.getY() + (dy * i) / steps;
