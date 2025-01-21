@@ -27,7 +27,7 @@ public class ClientApplication {
         int clientApps = getNumberOfClients();
         for (int i = 0; i < clientApps; i++) {
             try {
-                Client client = new Client("localhost", 8000);
+                Client client = new Client("localhost", 8000,clientApps);
                 client.launch();
             } catch (IOException e) {
                 System.err.println(e.getMessage());

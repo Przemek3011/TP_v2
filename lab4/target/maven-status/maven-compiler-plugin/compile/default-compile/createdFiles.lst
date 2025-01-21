@@ -4,11 +4,10 @@ checkers\client\Client.class
 checkers\client\ClientApplication.class
 checkers\server\Server.class
 checkers\Game\RandomBoard.class
-checkers\client\BoardGUI$2.class
+checkers\Game\MovementFactory.class
 checkers\Game\Movement.class
 checkers\client\BoardGUI.class
 checkers\Game\FactoryBoard.class
 checkers\Game\Response.class
-checkers\client\BoardGUI$1.class
 checkers\Game\Game.class
 checkers\Game\Board.class

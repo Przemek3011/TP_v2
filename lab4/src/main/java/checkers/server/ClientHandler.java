@@ -15,19 +15,25 @@ public class ClientHandler implements Runnable {
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
 
-    public ClientHandler(Socket socket, Server server, int clientID) {
-        this.socket = socket;
-        this.server = server;
-        this.clientID = clientID;
-        try {
-            this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            server.broadcastMessage("SERVER: Player #" + clientID + " has entered the game.");
-            sendMessage("SERVER: Connection established. Welcome, Player #" + clientID + "!");
-        } catch (IOException e) {
-            closeEverything();
-        }
+  // In ClientHandler constructor:
+public ClientHandler(Socket socket, Server server, int clientID) {
+    this.socket = socket;
+    this.server = server;
+    this.clientID = clientID;
+    try {
+        this.bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+        this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+        // This message goes to the client, prefixed with SERVER:
+        sendMessage("SERVER: Connection established. Welcome, Player #" + clientID + "!");
+
+        // Let all players know a new player joined
+        server.broadcastMessage("SERVER: Player #" + clientID + " has entered the game.");
+    } catch (IOException e) {
+        closeEverything();
     }
+}
+
 
     @Override
     public void run() {
