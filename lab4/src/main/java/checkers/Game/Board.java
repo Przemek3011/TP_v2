@@ -39,11 +39,6 @@ public class Board implements FactoryBoard {
         }
         return sb.toString();
     }
-    @Override
-    public void swap(int x1,int y1,int x2,int y2,int [][]board){
-        board[x2][y2]=board[x1][y1];
-        board[x1][y1]=1;
-    }
 
     @Override
     public int[][] createBoard(int numberOfPlayers) {

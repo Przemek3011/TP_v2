@@ -23,12 +23,26 @@ public class ServerApplication {
             }
         }
     }
+    private static String initVariant() {
+        Scanner scanner = new Scanner(System.in);
+        while(true) {
+                System.out.println("Choose variant: d - Default, s - Super, r - Random");
+                String variant = scanner.nextLine();
+                if (!variant.equals("s") && !variant.equals("r")  && !variant.equals("d")) {
+                    System.out.println("This variant is wrong.");
+                } else {
+                    return variant;
+                }
+        }
+    }
+
 
     public static void main(String[] args) {
         int numberOfPlayers = initGame();
+        String variant = initVariant();
         try {
             ServerSocket serverSocket = new ServerSocket(8000);
-            Server server = new Server(serverSocket,numberOfPlayers);
+            Server server = new Server(serverSocket,numberOfPlayers,variant);
             server.startServer();
         } catch (IOException e) {
             System.err.println("Error starting the server: " + e.getMessage());

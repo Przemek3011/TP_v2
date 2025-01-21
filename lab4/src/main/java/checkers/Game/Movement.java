@@ -10,8 +10,6 @@ public class Movement implements MovementFactory {
         this.Board = Board;
         Board = new Board();
         board=Board.getBoard();
-        
-
     }
 
     @Override
@@ -48,7 +46,7 @@ public class Movement implements MovementFactory {
 
         int dx = Math.abs(x1 - x2);
         int dy = Math.abs(y1 - y2);
-        return dx == 1 && dy == 1;
+        return (dx == 1 && dy == 1) || (dx==0 && dy==2);
     }
 
     public boolean isValidMultiJump(int x1, int y1, List<int[]> jumps) {

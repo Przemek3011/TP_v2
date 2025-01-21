@@ -6,74 +6,60 @@ public class Game {
     private FactoryBoard board;
     private MovementFactory movement;
     private int numberOfPlayers;
+    private int numberOnBoard;
     private int ID;
     int [][] Board;
     public Game(int numberOfPlayers,int ID, String variant) {
         this.numberOfPlayers = numberOfPlayers;
         this.ID=ID;
-        board = new Board();
-        board.createBoard(numberOfPlayers);
-
-        // Create the movement logic for the initialized board
-        movement = new Movement(board);
-
-        // Adjust the board based on the number of players
-        Board = board.getBoard();
+        switch(variant){
+            case "s": board = new Board();
+            board.createBoard(numberOfPlayers);
+            movement = new FastMovement(board);
+            break;
+            case "r": 
+            board = new RandomBoard();
+            board.createBoard(numberOfPlayers);
+            movement = new Movement(board);
+            break;
+            case "d":
+            board = new Board();
+            board.createBoard(numberOfPlayers);
+            movement = new Movement(board);
+            break;
+        }
+        Board=board.getBoard();
+        
     
     }
+    public int getNumberOnBoard( int numberOfPlayers,int ID){
 
-    /**
-     * Validate and execute a move on the board.
-     *
-     * @param ID    The player's ID (not used in validation here but can be extended for player-specific logic).
-     * @param x1    The starting x-coordinate.
-     * @param y1    The starting y-coordinate.
-     * @param x2    The ending x-coordinate.
-     * @param y2    The ending y-coordinate.
-     * @param moves A list of additional moves for multi-jump scenarios.
-     * @return True if the move is valid and executed, false otherwise.
-     */
-    public boolean move(int ID, int x1, int y1, int x2, int y2, List<int[]> moves) {
-        // Check if the coordinates are out of bounds
-        if (isOutOfBounds(x1, y1) || isOutOfBounds(x2, y2)) {
-            return false;
+        switch(numberOfPlayers){
+            case 2:
+            switch(ID){
+                case 1: numberOnBoard=2; break;
+                case 2: numberOnBoard=5; break;
+                }break;
+            case 3:
+            switch(ID){
+                case 1:numberOnBoard=2; break;
+                case 2:numberOnBoard=4; break;
+                case 3:numberOnBoard=6; break;
+            }break;
+            case 4:
+            switch(ID){
+                case 1:numberOnBoard=2;break;
+                case 2: numberOnBoard=3;break;
+                case 3: numberOnBoard=5;break;
+                case 4:numberOnBoard=6;break;
+                }break;
+                case 6: numberOnBoard=ID+1; break;
         }
-
-
-
-        // Multi-jump validation
-        boolean isValid = movement.isValidMove(x1, y1, moves);
-        if (isValid) {
-            for (int[] move : moves) {
-                swap(x1, y1, move[0], move[1]);
-                x1 = move[0];
-                y1 = move[1];
-            }
-        }
-        return isValid;
+        return numberOnBoard;
     }
 
-    /**
-     * Swap two positions on the board.
-     *
-     * @param x1 The starting x-coordinate.
-     * @param y1 The starting y-coordinate.
-     * @param x2 The ending x-coordinate.
-     * @param y2 The ending y-coordinate.
-     */
-    private void swap(int x1, int y1, int x2, int y2) {
-        board.swap(x1, y1, x2, y2, board.getBoard());
-    }
-
-    /**
-     * Check if the given coordinates are out of bounds.
-     *
-     * @param x The x-coordinate.
-     * @param y The y-coordinate.
-     * @return True if out of bounds, false otherwise.
-     */
-    private boolean isOutOfBounds(int x, int y) {
-        return x < 0 || x > 24 || y < 0 || y > 16;
+    public boolean isValidMove(int x1,int y1, List<int[]> moves){
+        return movement.isValidMove(x1, y1, moves);
     }
 
     /**
@@ -114,4 +100,17 @@ public class Game {
         }
         return false;
     }
+
+    public String color(int ID){
+        switch(ID){
+            case 2: return "RED";
+            case 3: return "BLUE";
+            case 4: return "GREEN"; 
+            case 5: return "YELLOW"; 
+            case 6: return "ORANGE"; 
+            case 7: return "PINK"; 
+        }
+        return "";
+    }
+
 }

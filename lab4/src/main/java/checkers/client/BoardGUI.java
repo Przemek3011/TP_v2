@@ -95,6 +95,12 @@ public class BoardGUI extends JFrame {
 
     // Helper to pick a color based on a cell value
     private Color getColorForCell(int value) {
+        final Color Light_RED=new Color(255,160,160);
+        final Color Light_BLUE=new Color(51,204,255);
+        final Color Light_GREEN=new Color(102,255,102);
+        final Color Light_YELLOW=new Color(255,255,153);
+        final Color Light_ORANGE=new Color(255,153,0);
+        final Color Light_PINK=new Color(250,218,221);
         switch (value) {
             case 1: return Color.WHITE;  // Example: empty
             case 2: return Color.RED;    
@@ -102,7 +108,13 @@ public class BoardGUI extends JFrame {
             case 4: return Color.GREEN;  
             case 5: return Color.YELLOW; 
             case 6: return Color.ORANGE; 
-            case 7: return Color.PINK;   
+            case 7: return Color.PINK; 
+            case 8: return Light_RED;    
+            case 9: return Light_BLUE;   
+            case 10: return Light_GREEN;  
+            case 11: return Light_YELLOW; 
+            case 12: return Light_ORANGE; 
+            case 13: return Light_PINK;  
             default: return Color.LIGHT_GRAY; 
         }
     }
