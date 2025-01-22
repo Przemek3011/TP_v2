@@ -1,0 +1,66 @@
+@options
+@packages
+@argfile
+-encoding
+'UTF-8'
+-protected
+-quiet
+-source
+'1.8'
+-sourcepath
+'C:/Users/przem/OneDrive/Pulpit/TP_v3/TP_v2/lab4/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/przem/OneDrive/Pulpit/TP_v3/TP_v2/lab4/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'lab4 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' 'C:/Users/przem/OneDrive/Pulpit/TP_v3/TP_v2/lab4/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'lab4 1.0-SNAPSHOT API'
+checkers.client
+checkers.Game
+checkers.server
+'C:/Users/przem/OneDrive/Pulpit/TP_v3/TP_v2/lab4/src/main/java/checkers/client/BoardGUI.java'
+'C:/Users/przem/OneDrive/Pulpit/TP_v3/TP_v2/lab4/src/main/java/checkers/client/Client.java'
+'C:/Users/przem/OneDrive/Pulpit/TP_v3/TP_v2/lab4/src/main/java/checkers/client/ClientApplication.java'
+'C:/Users/przem/OneDrive/Pulpit/TP_v3/TP_v2/lab4/src/main/java/checkers/Game/Board.java'
+'C:/Users/przem/OneDrive/Pulpit/TP_v3/TP_v2/lab4/src/main/java/checkers/Game/FactoryBoard.java'
+'C:/Users/przem/OneDrive/Pulpit/TP_v3/TP_v2/lab4/src/main/java/checkers/Game/FastMovement.java'
+'C:/Users/przem/OneDrive/Pulpit/TP_v3/TP_v2/lab4/src/main/java/checkers/Game/Game.java'
+'C:/Users/przem/OneDrive/Pulpit/TP_v3/TP_v2/lab4/src/main/java/checkers/Game/Movement.java'
+'C:/Users/przem/OneDrive/Pulpit/TP_v3/TP_v2/lab4/src/main/java/checkers/Game/MovementFactory.java'
+'C:/Users/przem/OneDrive/Pulpit/TP_v3/TP_v2/lab4/src/main/java/checkers/Game/RandomBoard.java'
+'C:/Users/przem/OneDrive/Pulpit/TP_v3/TP_v2/lab4/src/main/java/checkers/server/ClientHandler.java'
+'C:/Users/przem/OneDrive/Pulpit/TP_v3/TP_v2/lab4/src/main/java/checkers/server/Server.java'
+'C:/Users/przem/OneDrive/Pulpit/TP_v3/TP_v2/lab4/src/main/java/checkers/server/ServerApplication.java'
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\src\main\java = 1737281329628
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\allclasses-index.html = 1737536932863
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\allpackages-index.html = 1737536932867
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\copy.svg = 1737536932913
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\element-list = 1737536932701
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\help-doc.html = 1737536932906
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\index-all.html = 1737536932894
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\index.html = 1737536932846
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\link.svg = 1737536932915
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\member-search-index.js = 1737536932874
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\module-search-index.js = 1737536932868
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\overview-summary.html = 1737536932899
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\overview-tree.html = 1737536932840
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\package-search-index.js = 1737536932870
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\script.js = 1737536932911
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\search-page.js = 1737536932921
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\search.html = 1737536932896
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\search.js = 1737536932919
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\serialized-form.html = 1737536932759
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\stylesheet.css = 1737536932909
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\tag-search-index.js = 1737536932876
+C:\Users\przem\OneDrive\Pulpit\TP_v3\TP_v2\lab4\target\site\apidocs\type-search-index.js = 1737536932872

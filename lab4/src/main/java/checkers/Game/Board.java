@@ -1,5 +1,7 @@
 package checkers.Game;
-
+/**
+ * Class that creates and has methods of default Board
+ */
 public class Board implements FactoryBoard {
     private final int[][] board;
     public Board(){
@@ -39,7 +41,9 @@ public class Board implements FactoryBoard {
         }
         return sb.toString();
     }
-
+    /**
+     * create Board based on number of players
+     */
     @Override
     public int[][] createBoard(int numberOfPlayers) {
         switch (numberOfPlayers){

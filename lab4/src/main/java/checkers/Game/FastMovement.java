@@ -1,19 +1,24 @@
 package checkers.Game;
 
 import java.util.List;
-
+/**
+ * class represents movement in super variant
+ */
 public class FastMovement implements MovementFactory {
-    private FactoryBoard Board;
+    
     private int[][] board;
 
-    public FastMovement(FactoryBoard Board){
-        this.Board = Board;
-        this.board = Board.getBoard();
+    public FastMovement(int [][]Board){
+        this.board = Board;
     }
-
-   
+    public void refreshBoard(int [][]Board){
+        this.board=Board;
+    }
+    /**
+     * method that checks if the move is valid 
+     */
     @Override
-    public boolean isValidMove(int x1, int y1, List<int[]> moves) {
+    public boolean isValidMove(int x1, int y1, List<int[]> moves,int[][]board) {
         if (moves == null || moves.isEmpty()) {
             return false;
         }
@@ -35,8 +40,6 @@ public class FastMovement implements MovementFactory {
 
     /**
      * Checks if x2,y2 is an empty adjacent cell (one step away).
-     * For instance, in Chinese Checkers, adjacency can be 
-     * diagonal or orth diagonal, etc.
      */
     public boolean isValidAdjacentMove(int x1, int y1, int[] end) {
         int x2 = end[0];
@@ -60,31 +63,20 @@ public class FastMovement implements MovementFactory {
      */
     public boolean isValidStandardJump(int x1, int y1, int x2, int y2) {
         // Must land on empty
-        if (!isEmptyCell(x2, y2)) {
+        if (board[x2] [y2] != 1) { 
             return false;
         }
-
-        int dx = x2 - x1;
-        int dy = y2 - y1;
-
-      
-        if (Math.abs(dx) != 2 || Math.abs(dy) != 2) {
-            return false;
-        }
+        int dx = Math.abs(x1 - x2);
+        int dy = Math.abs(y1 - y2);
 
         int midX = (x1 + x2) / 2;
         int midY = (y1 + y2) / 2;
 
-        if (isEmptyCell(midX, midY)) {
-            return false;
-        }
-
-        return true;
+        return ((dx == 2 && dy == 2 && board[midX] [midY] > 1) || (dx==0 && dy==4 && board[midX] [midY] > 1));
     }
 
     /**
-     * For "super jumps" that might skip more than 2 squares in a straight or diagonal line.
-     * This is an advanced rule in some versions of Chinese checkers.
+     * check if super jump is valid (TO DO: make it work)
      */
     private boolean isValidSuperJump(int x1, int y1, int x2, int y2) {
        
@@ -96,20 +88,16 @@ public class FastMovement implements MovementFactory {
         int dy = y2 - y1;
 
 
-        if (!(dx == 0 || dy == 0 || Math.abs(dx) == Math.abs(dy))) {
+        if (!(dy == 0 ||  Math.abs(dx) == Math.abs(dy))) {
             return false;
         }
 
-    
-        if (Math.abs(dx) % 2 != 0 || Math.abs(dy) % 2 != 0) {
-            return false;
-        }
 
         int midX = x1 + dx / 2;
         int midY = y1 + dy / 2;
 
         // The midpoint must have a piece (not empty)
-        if (isEmptyCell(midX, midY)) {
+        if (isEmptyCell(midX, midY) || board[midX][midY]== 0) {
             return false;
         }
 

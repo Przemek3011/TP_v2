@@ -1,7 +1,10 @@
 package checkers.Game;
 
 import java.util.List;
-
+/**
+ * Class that operates our game 
+ * Observator pattern? (not really)
+ */
 public class Game {
     private FactoryBoard board;
     private MovementFactory movement;
@@ -15,23 +18,27 @@ public class Game {
         switch(variant){
             case "s": board = new Board();
             board.createBoard(numberOfPlayers);
-            movement = new FastMovement(board);
+            movement = new FastMovement(board.getBoard());
             break;
             case "r": 
             board = new RandomBoard();
             board.createBoard(numberOfPlayers);
-            movement = new Movement(board);
+            movement = new Movement(board.getBoard());
             break;
             case "d":
             board = new Board();
             board.createBoard(numberOfPlayers);
-            movement = new Movement(board);
+            movement = new Movement(board.getBoard());
             break;
         }
         Board=board.getBoard();
-        
-    
     }
+    /**
+     * based on condition give a piece value to the Client 
+     * @param numberOfPlayers
+     * @param ID
+     * @return
+     */
     public int getNumberOnBoard( int numberOfPlayers,int ID){
 
         switch(numberOfPlayers){
@@ -57,9 +64,12 @@ public class Game {
         }
         return numberOnBoard;
     }
-
+    /**
+     * check if move is valid 
+     */
     public boolean isValidMove(int x1,int y1, List<int[]> moves){
-        return movement.isValidMove(x1, y1, moves);
+        movement.refreshBoard(getBoard());
+        return movement.isValidMove(x1, y1, moves,getBoard());
     }
 
     /**
@@ -70,10 +80,15 @@ public class Game {
     public int[][] getBoard() {
         return board.getBoard();
     }
+    /**
+     * check if the player won 
+     * @param ID - piece ID
+     * @return - if player with piece ID won
+     */
     public boolean hasWon(int ID){
         switch(ID){
             case 2:
-            if(Board[16][12]==2 && Board[15][11]==2 && Board[15][10]==2 &&Board[14][9]==2 && Board[14][11]==2 && Board[14][13]==2 && Board[13][9]==2 && Board[13][10]==2 && Board[13][12]==2 && Board[13][14]==2 )
+            if(Board[16][12]==2 && Board[15][11]==2 && Board[15][13]==2 &&Board[14][10]==2 && Board[14][12]==2 && Board[14][14]==2 && Board[13][9]==2 && Board[13][11]==2 && Board[13][13]==2 && Board[13][15]==2 )
             return true;
             break;
             case 3: 
@@ -100,7 +115,11 @@ public class Game {
         }
         return false;
     }
-
+    /**
+     * return string that shows the color of class 
+     * @param ID
+     * @return color of piece 
+     */
     public String color(int ID){
         switch(ID){
             case 2: return "RED";
@@ -111,6 +130,15 @@ public class Game {
             case 7: return "PINK"; 
         }
         return "";
+    }
+    /**
+     * change board in game
+     * @param x y 
+     * @param y x 
+     * @param Piece piece value 
+     */
+    public void setGamePiece(int x, int y, int Piece){
+        Board[x][y]=Piece;
     }
 
 }

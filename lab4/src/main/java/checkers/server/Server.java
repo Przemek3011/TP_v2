@@ -9,7 +9,9 @@ import java.util.List;
 import java.util.Map;
 
 import checkers.Game.Game;
-
+/**
+ * class that represents server and handles messages from clients
+ */
 public class Server {
 
     private final ServerSocket serverSocket;
@@ -27,14 +29,22 @@ public class Server {
 
     private int[][] board;
 
-
+/**
+ * constructor of server class 
+ * @param serverSocket socket
+ * @param numOfPlayers number of players from server application
+ * @param variant variant of game
+ */
 public Server(ServerSocket serverSocket, int numOfPlayers,String variant) {
     this.variant=variant;
     this.serverSocket = serverSocket;
     this.numOfPlayers = numOfPlayers;
     this.clientHandlers = new ArrayList<>();
 }
-
+    /** start server
+     * assign pieces to client 
+     * create game
+     */
 public void startServer(){
     try {
         
@@ -78,6 +88,7 @@ public void startServer(){
 
     /**
      * Called by each ClientHandler when it reads a command from its client.
+     * handles moves like skip or move y1 x1 y2 x2 [y3 x3]
      */
     public synchronized void handleMove(ClientHandler clientHandler, String command) {
         int clientID = clientHandler.getClientID();
@@ -133,13 +144,22 @@ public void startServer(){
                     clientHandler.sendMessage("SERVER: You picked a cell without any pieces. Choose again.");
                     return;
                 }
+                if(board[currentX][currentY]!=1){
+                    clientHandler.sendMessage("SERVER:There is piece on end move. Choose again.");
+                    return;
+
+                }
                 if (board[x1][y1] != pieceValue) {
                     clientHandler.sendMessage("SERVER: That piece isn't yours. You can only move your own pieces.");
                     return;
                 }
+                if(!game.isValidMove(x1, y1, moves)){
+                    clientHandler.sendMessage("SERVER: Wrong Move.");
+                    return;
+                }
     
-                board[currentX][currentY] = pieceValue;
-                board[x1][y1] = 1;
+                game.setGamePiece(currentX, currentY, pieceValue);
+                game.setGamePiece(x1, y1, 1);
     
                 broadcastMessage("SERVER: Player #" + clientID
                                  + " moved from (" + x1 + "," + y1

@@ -5,7 +5,10 @@ import java.net.ServerSocket;
 import java.util.Scanner;
 
 public class ServerApplication {
-
+        /**
+         * init function that gives number of players
+         * @return number of players
+         */
     private static int initGame() {
         System.out.println("Hello! Welcome to Trylma!");
         Scanner scanner = new Scanner(System.in);
@@ -23,6 +26,10 @@ public class ServerApplication {
             }
         }
     }
+    /**
+     * init function that passes variant of the game
+     * @return variant of the game
+     */
     private static String initVariant() {
         Scanner scanner = new Scanner(System.in);
         while(true) {
@@ -36,7 +43,10 @@ public class ServerApplication {
         }
     }
 
-
+    /**
+     * function that turns on Server
+     * @param args
+     */
     public static void main(String[] args) {
         int numberOfPlayers = initGame();
         String variant = initVariant();

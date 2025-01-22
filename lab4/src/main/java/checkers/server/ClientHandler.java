@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
-
+/**
+ * Method that handles clients
+ */
 public class ClientHandler implements Runnable {
 
     private final int clientID;
@@ -33,7 +35,9 @@ public ClientHandler(Socket socket, Server server, int clientID) {
     }
 }
 
-
+    /**
+     * rund clients 
+     */
     @Override
     public void run() {
         String messageFromClient;
@@ -49,7 +53,10 @@ public ClientHandler(Socket socket, Server server, int clientID) {
             }
         }
     }
-
+    /**
+     * send message
+     * @param message
+     */
     public void sendMessage(String message) {
         try {
             bufferedWriter.write(message);
@@ -59,11 +66,16 @@ public ClientHandler(Socket socket, Server server, int clientID) {
             closeEverything();
         }
     }
-
+    /**
+     * get Client ID
+     * @return
+     */
     public int getClientID() {
         return clientID;
     }
-
+    /**
+     * client was closed 
+     */
     public void closeEverything(){
         try{
             if(bufferedReader != null){

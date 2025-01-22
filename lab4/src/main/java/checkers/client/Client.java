@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
-
+/**
+ * Client class
+ */
 public class Client {
     private final Socket socket;
     private final Scanner in;
@@ -20,22 +22,34 @@ public class Client {
         this.out = new PrintWriter(socket.getOutputStream(), true);
         this.board = new BoardGUI(this,numberOfPlayers);
     }
-
+    /**
+     * send message to server
+     * @param message message sent to server
+     */
     public void sendMessageToServer(String message) {
         out.println(message);
     }
-
+    /**
+     * get messate from server 
+     * @return get message from server
+     */
     public String receiveMessageFromServer() {
         if (in.hasNextLine()) {
             return in.nextLine();
         }
         return null;
-    }
+    }   
 
+    /**
+     * close connection
+     * @throws IOException
+     */
     public void closeConnection() throws IOException {
         socket.close();
     }
-
+    /**
+     * start game and functions of client in game
+     */
     public void launch() {
         new Thread(() -> {
             try {
@@ -61,7 +75,10 @@ public class Client {
             }
         }).start();
     }
-
+    /**
+     * change string that represent board into board of integers
+     * @param updateData string that represents board
+     */
     private void handleBoardUpdate(String updateData) {
         String[] cells = updateData.split(",");
         int[][] newBoard = new int[17][25];

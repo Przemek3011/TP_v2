@@ -3,7 +3,9 @@ package checkers.client;
 import checkers.Game.*;
 import javax.swing.*;
 import java.awt.*;
-
+/**
+ * class that creates visual interface for clients
+ */
 public class BoardGUI extends JFrame {
     private JTextField inputField;
     private JButton sendButton;
@@ -11,12 +13,12 @@ public class BoardGUI extends JFrame {
     private JPanel boardPanel;         // Panel for the game board
     private JTextArea messagesArea;    // Single area for ALL messages (server + client)
     private Client client;
-    private Board board;              // Reference to the game board
+    private Board board;              
 
     public BoardGUI(Client client, int numberOfPlayers) {
         this.numberOfPlayers=numberOfPlayers;
         this.client = client;
-        this.board = new Board(); // If you have a Board class for game logic/state
+        this.board = new Board();
         board.createBoard(numberOfPlayers);
         // Set up the frame
         setTitle("Checkers Game");
@@ -36,7 +38,7 @@ public class BoardGUI extends JFrame {
         JPanel mainPanel = new JPanel(new BorderLayout());
         add(mainPanel, BorderLayout.CENTER);
 
-        // Board panel (17x25)
+        
         boardPanel = new JPanel();
         boardPanel.setLayout(new GridLayout(17, 25));
         initializeBoard();
@@ -59,7 +61,9 @@ public class BoardGUI extends JFrame {
         inputField.addActionListener(e -> sendMessage());
     }
 
-    // Fill the board with initial state
+    /**
+     * creating 1st board gui (not important)
+     */
     private void initializeBoard() {
         int[][] boardData = board.getBoard(); // For example, a 17x25 int[][]
         for (int i = 0; i < boardData.length; i++) {
@@ -72,7 +76,10 @@ public class BoardGUI extends JFrame {
         }
     }
 
-    // Update board after receiving new data
+    /**
+     * updating board 
+     * @param newBoard updated board
+     */
     public void updateBoard(int[][] newBoard) {
         boardPanel.removeAll();
         for (int i = 0; i < newBoard.length; i++) {
@@ -87,13 +94,20 @@ public class BoardGUI extends JFrame {
         boardPanel.repaint();
     }
 
-    // Append ALL messages (whether server broadcast or chat) to this single area on the right
+   /**
+    * send message to chat area
+    * @param message message
+    */
     public void appendMessage(String message) {
         messagesArea.append(message + "\n");
         messagesArea.setCaretPosition(messagesArea.getDocument().getLength());
     }
 
-    // Helper to pick a color based on a cell value
+    /**
+     * fill board with colors
+     * @param value - value of piece on each cell
+     * @return color 
+     */
     private Color getColorForCell(int value) {
         final Color Light_RED=new Color(255,160,160);
         final Color Light_BLUE=new Color(51,204,255);
@@ -119,7 +133,9 @@ public class BoardGUI extends JFrame {
         }
     }
 
-    // Sends the user's typed message to the server
+    /**
+     * send message 
+     */
     private void sendMessage() {
         String message = inputField.getText().trim();
         if (!message.isEmpty()) {

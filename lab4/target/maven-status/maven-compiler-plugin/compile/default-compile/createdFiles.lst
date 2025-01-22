@@ -9,6 +9,5 @@ checkers\Game\Movement.class
 checkers\client\BoardGUI.class
 checkers\Game\FastMovement.class
 checkers\Game\FactoryBoard.class
-checkers\Game\Response.class
 checkers\Game\Game.class
 checkers\Game\Board.class
