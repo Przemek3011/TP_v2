@@ -51,7 +51,7 @@ public class FastMovement implements MovementFactory {
         int dx = Math.abs(x1 - x2);
         int dy = Math.abs(y1 - y2);
      
-        return (dx <= 1 && dy <= 1 && (dx + dy != 0));
+        return ((dx == 1 && dy == 1) || (dx ==0 && dy == 2));
     }
 
     /**
@@ -67,8 +67,7 @@ public class FastMovement implements MovementFactory {
         int dx = x2 - x1;
         int dy = y2 - y1;
 
-        // For a standard diagonal jump, maybe dx==2 && dy==2 (or -2).
-        // If you allow vertical/horizontal jumps, adapt accordingly.
+      
         if (Math.abs(dx) != 2 || Math.abs(dy) != 2) {
             return false;
         }
@@ -117,6 +116,13 @@ public class FastMovement implements MovementFactory {
      
         int steps = Math.max(Math.abs(dx), Math.abs(dy));
 
+        for (int i = 1; i < steps; i++) {
+            int currentX = x1 + (dx * i) / steps;
+            int currentY = y1 + (dy * i) / steps;
+            if (board[currentX][currentY] != 1) {
+                return false;
+            }
+        }
         return true;
     }
 
